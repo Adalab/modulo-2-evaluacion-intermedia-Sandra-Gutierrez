@@ -103,6 +103,18 @@ function countPointsComputer(result){
   return numComputer;
 }
 
+function renderResultUser(num){
+  let pointUser = parseInt(pointsUser.innerHTML);
+  let resultUser = pointUser + num;
+  pointsUser.innerHTML = resultUser;
+}
+
+function renderResultComputer(num){
+  let pointPc = parseInt(pointsComputer.innerHTML);
+  let resultPc = pointPc + num;
+  pointsComputer.innerHTML = resultPc;
+}
+
 function handlerClickStartGame(event){
 
   event.preventDefault()
@@ -127,19 +139,9 @@ function handlerClickStartGame(event){
   const numComputer = countPointsComputer(resultGame);
 
   // renderizar puntos
-  console.log(numUser);
-  let pointUser = parseInt(pointsUser.innerHTML);
-  console.log(pointUser);
-  let resultUser = pointUser + numUser;
-  console.log(resultUser);
-  pointsUser.innerHTML = resultUser;
+  renderResultUser(numUser);
+  renderResultComputer(numComputer);
 
-  console.log(numComputer);
-  let pointPc = parseInt(pointsComputer.innerHTML);
-  console.log(pointPc);
-  let resultPc = pointPc + numComputer;
-  console.log(resultPc);
-  pointsComputer.innerHTML = resultPc;
 }
 
 // Listeners
