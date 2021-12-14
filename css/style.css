@@ -3,3 +3,30 @@
   margin: 0px;
   padding: 0;
 }
+.main{
+  font-family: sans-serif;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  padding: 40px;
+}
+.title{
+  padding-bottom: 10px;
+}
+.par{
+  padding-bottom: 10px;
+}
+.form{
+  padding-bottom: 10px;
+}
+.resultTitle{
+  padding-bottom: 30px;
+  background-color: plum;
+  width: 20%;
+  margin: 0 auto;
+  padding: 5px;
+  color: whitesmoke;
+}
+.ul{
+  list-style: none;
+}
