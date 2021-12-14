@@ -7,6 +7,7 @@ const optionStone = document.querySelector('.js-optionStone');
 const optionPaper = document.querySelector('.js-optionPaper');
 const optionScissors = document.querySelector('.js-optionScissors');
 const inputStart = document.querySelector('.js-inputStart');
+const resultTitle = document.querySelector('.js-resultTitle');
 
 // Funciones
 
@@ -68,11 +69,16 @@ function compareOptionsUsers( userValue , computerValue){
   return result;
 }
 
+function paintResult(result){
+  console.log(result);
+  resultTitle.innerHTML = result;
+}
+
 function handlerClickStartGame(event){
 
   event.preventDefault()
 
-  // guardar jugada usuario
+  // guardar jugada usuario: FUNCIONA
   const optionUser = saveUserOption();
   console.log(`La jugadora elige: ${optionUser}`);
 
@@ -80,9 +86,13 @@ function handlerClickStartGame(event){
   const optionComputer = saveUserPc();
   console.log(`El ordenador elige: ${optionComputer}`);
 
-  // comparar jugadas
+  // comparar jugadas: FUNCIONA
   const resultGame = compareOptionsUsers(optionUser, optionComputer);
   console.log(`Resultado: ${resultGame}`);
+
+  // renderizar resultado
+  paintResult(resultGame);
+
   
 }
 
