@@ -10,6 +10,7 @@ const inputStart = document.querySelector('.js-inputStart');
 const resultTitle = document.querySelector('.js-resultTitle');
 const pointsUser = document.querySelector('.js-pointsUser');
 const pointsComputer = document.querySelector('.js-pointsComputer');
+let numClick = 0;
 
 // Funciones
 
@@ -115,6 +116,15 @@ function renderResultComputer(num){
   pointsComputer.innerHTML = resultPc;
 }
 
+function countClicks(){
+  numClick++
+  console.log(`Levamos ${numClick} clicks`)
+  if( numClick === 10){
+    //renicia juego
+    location.reload()
+  }
+}
+
 function handlerClickStartGame(event){
 
   event.preventDefault()
@@ -141,6 +151,9 @@ function handlerClickStartGame(event){
   // renderizar puntos
   renderResultUser(numUser);
   renderResultComputer(numComputer);
+
+  // reiniciar juego a las 10 interacciones
+  countClicks()
 
 }
 
