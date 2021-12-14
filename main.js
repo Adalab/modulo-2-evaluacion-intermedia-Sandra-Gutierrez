@@ -8,6 +8,8 @@ const optionPaper = document.querySelector('.js-optionPaper');
 const optionScissors = document.querySelector('.js-optionScissors');
 const inputStart = document.querySelector('.js-inputStart');
 const resultTitle = document.querySelector('.js-resultTitle');
+const pointsUser = document.querySelector('.js-pointsUser');
+const pointsComputer = document.querySelector('.js-pointsComputer');
 
 // Funciones
 
@@ -38,31 +40,31 @@ function compareOptionsUsers( userValue , computerValue){
   if( userValue === 'piedra' ){
     
     if( computerValue === 'piedra' ){
-      result = 'empate';
+      result = 'Empate';
     } else if ( computerValue === 'papel' ){
-      result = 'Gana el ordenador';
+      result = 'Has perdido';
     } else if ( computerValue === 'tijera' ){
-      result = 'Gana la jugadora';
+      result = 'Has ganado';
     }
 
   } else if ( userValue === 'papel' ){
 
     if( computerValue === 'papel' ){
-      result = 'empate';
+      result = 'Empate';
     } else if ( computerValue === 'piedra' ){
-      result = 'Gana la jugadora';
+      result = 'Has ganado';
     } else if ( computerValue === 'tijera' ){
-      result = 'Gana el ordenador';
+      result = 'Has perdido';
     }
 
   } else if (  userValue === 'tijera') {
 
     if( computerValue === 'tijera' ){
-      result = 'empate';
+      result = 'Empate';
     } else if ( computerValue === 'piedra' ){
-      result = 'Gana el ordenador';
+      result = 'Has perdido';
     } else if ( computerValue === 'papel' ){
-      result = 'Gana la jugadora';
+      result = 'Has ganado';
     }
 
   }
@@ -70,8 +72,35 @@ function compareOptionsUsers( userValue , computerValue){
 }
 
 function paintResult(result){
-  console.log(result);
   resultTitle.innerHTML = result;
+}
+
+function countPointsUser(result){
+  let numUser = 0;
+
+  if( result.includes('Empate') ){
+    numUser = 1;
+  }else if( result.includes('ganado') ){
+    numUser = 1;
+  }else if( result.includes('perdido') ){
+    numUser = 0;
+  }
+  
+  return numUser;
+}
+
+function countPointsComputer(result){
+  let numComputer = 0;
+
+  if( result.includes('Empate') ){
+    numComputer = 1;
+  }else if( result.includes('ganado') ){
+    numComputer = 0;
+  }else if( result.includes('perdido') ){
+    numComputer = 1;
+  }
+
+  return numComputer;
 }
 
 function handlerClickStartGame(event){
@@ -90,10 +119,18 @@ function handlerClickStartGame(event){
   const resultGame = compareOptionsUsers(optionUser, optionComputer);
   console.log(`Resultado: ${resultGame}`);
 
-  // renderizar resultado
+  // renderizar resultado: FUNCIONA
   paintResult(resultGame);
 
-  
+  // contar puntos: FUNCIONA
+  const numUser = countPointsUser(resultGame);
+  const numComputer = countPointsComputer(resultGame);
+
+  // renderizar puntos
+  console.log(numUser)
+  pointsUser.innerHTML += parseInt(numUser);
+  console.log(numComputer)
+  pointsComputer.innerHTML += parseInt(numComputer);
 }
 
 // Listeners
