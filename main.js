@@ -79,7 +79,7 @@ function countPointsUser(result){
   let numUser = 0;
 
   if( result.includes('Empate') ){
-    numUser = 1;
+    numUser = 0;
   }else if( result.includes('ganado') ){
     numUser = 1;
   }else if( result.includes('perdido') ){
@@ -93,7 +93,7 @@ function countPointsComputer(result){
   let numComputer = 0;
 
   if( result.includes('Empate') ){
-    numComputer = 1;
+    numComputer = 0;
   }else if( result.includes('ganado') ){
     numComputer = 0;
   }else if( result.includes('perdido') ){
@@ -127,10 +127,19 @@ function handlerClickStartGame(event){
   const numComputer = countPointsComputer(resultGame);
 
   // renderizar puntos
-  console.log(numUser)
-  pointsUser.innerHTML += parseInt(numUser);
-  console.log(numComputer)
-  pointsComputer.innerHTML += parseInt(numComputer);
+  console.log(numUser);
+  let pointUser = parseInt(pointsUser.innerHTML);
+  console.log(pointUser);
+  let resultUser = pointUser + numUser;
+  console.log(resultUser);
+  pointsUser.innerHTML = resultUser;
+
+  console.log(numComputer);
+  let pointPc = parseInt(pointsComputer.innerHTML);
+  console.log(pointPc);
+  let resultPc = pointPc + numComputer;
+  console.log(resultPc);
+  pointsComputer.innerHTML = resultPc;
 }
 
 // Listeners
