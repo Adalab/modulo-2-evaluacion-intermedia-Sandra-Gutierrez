@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Queries</title>
+    <title>Piedra, papel o tijera</title>
     <link rel="stylesheet" href="./css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -14,7 +14,8 @@
       <h1 class="title">Juego Piedra, Papel y Tijera</h1>
       <p class="par">Introduce aquí tu jugada:</p>
       <form class="form">
-        <select class="js-select" id="" name="">
+        <label for="options"></label>
+        <select class="js-select" id="options" name="">
           <option disabled selected hidden>Seleccione su jugada</option>
           <option class="js-optionStone" value="piedra">Piedra</option>
           <option class="js-optionPaper" value="papel">Papel</option>
@@ -22,14 +23,19 @@
         </select>
         <input class="js-inputStart" type="submit" value="Jugar">
       </form>
+      <p class="js-error error"></p>
       <p class="js-resultTitle resultTitle">Vamos a jugar!</p>
       <ul class="ul">
         <li>Jugadora: <span class="js-pointsUser">0</span></li>
         <li>Ordenador: <span class="js-pointsComputer">0</span></li>
       </ul>
+      <div class="js-feedback feedback">
+        <p class="js-feedback feed"></p>
+        <p>Ronda: <span class="js-rounds">0</span></p>
+      </div>
 
     </main>
 
-    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>
